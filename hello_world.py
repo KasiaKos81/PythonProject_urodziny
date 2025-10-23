@@ -108,3 +108,4 @@ rok_urodzenia = int(input("Podaj rok urodzenia: "))
 
 
 
+
