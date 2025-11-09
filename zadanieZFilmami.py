@@ -54,5 +54,4 @@ if zajete_miejsce_aktualnego_slotu < najlzejszy_slot:
 print(f"Rozmiar filmow wynosi: {calkowita_wielkosc_filmow} MB")
 print(f"Ilosc wykorzystywanych slotow wynosi: {ilosc_slotow}")
 print(f"Ilosc pustej przestrzeni: {ilosc_slotow * maksymalna_pojemnosc_slotu - calkowita_wielkosc_filmow}")
-print(
-    f"Najlzejszy slot to: {slot_z_najmniej_zajetym_miejscem}, mial {maksymalna_pojemnosc_slotu - najlzejszy_slot} wolnego miejsca")
+print(f"Najlzejszy slot to: {slot_z_najmniej_zajetym_miejscem}, mial {maksymalna_pojemnosc_slotu - najlzejszy_slot} wolnego miejsca")

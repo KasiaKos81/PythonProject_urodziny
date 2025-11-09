@@ -49,11 +49,10 @@ for ocena_lp in range(ilosc_ocen):
         break
 
     if ocena == 2:
-        ilosc_ocen_niedostatecznych += ocena
-        suma_ocen_niedostateczych += ocena
+        ilosc_ocen_niedostatecznych += 1
 
     if ocena == 5 or ocena == 4:
-        ilosc_dobrych_ocen += ocena
+        ilosc_dobrych_ocen += 1
 
 print(f"Ilosc poprawnych ocen to: {ilosc_ocen}")
 print(f"Ilosc ocen niedostatecznych to: {ilosc_ocen_niedostatecznych}")
