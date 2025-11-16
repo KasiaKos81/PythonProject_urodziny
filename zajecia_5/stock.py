@@ -125,9 +125,11 @@ while True:
             history.append(f"Purchased product {product_code}")
         case "4":
             print(f"Current stock account balance: {stock_account_balance} PLN")
+            history.append("Account balance printing")
         case "5":
             print("Entire stock")
             print(stock)
+            history.append("Get entire stock")
         case "6":
             product_code = input("Podaj nr produktu: ")
             product_found = False
@@ -135,6 +137,7 @@ while True:
                 if p.get("kod_produktu") == product_code:
                     product_found = True
                     print(f"Found product: {p}")
+                    history.append("Finding product by code")
                     break
             if not product_found:
                 print("No such product available")
