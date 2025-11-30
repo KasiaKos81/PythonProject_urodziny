@@ -1,0 +1,40 @@
+{
+    "stock_account_balance": 21000.0,
+    "history": [
+        "account_balance_displayed",
+        "end",
+        "Balance change"
+    ],
+    "stock": [
+        {
+            "product": "chocolate",
+            "price": 15.0,
+            "quantity_in_stock": 10,
+            "product_code": "112233"
+        },
+        {
+            "product": "halvah",
+            "price": 8.0,
+            "quantity_in_stock": 5,
+            "product_code": "223344"
+        },
+        {
+            "product": "lollypop",
+            "price": 2.0,
+            "quantity_in_stock": 100,
+            "product_code": "334455"
+        },
+        {
+            "product": "donut",
+            "price": 40.0,
+            "quantity_in_stock": 8,
+            "product_code": "556677"
+        },
+        {
+            "product": "waffle",
+            "price": 6.0,
+            "quantity_in_stock": 50,
+            "product_code": "667788"
+        }
+    ]
+}

@@ -14,8 +14,8 @@
 # After user enters the respective command, the program is behaving accordingly:
 #
 # balance - Program fetches the amount, which should be added or substracted from the bank account
-# sale - Program fetches the product name, price and number of pcs. Produkt needs to be presesnt in the stock. Required calculations related to bank account and stock (i.e. product "bicycle" that cost 100 and 1 pcs sold results in substraction 1 pcs of "bicycle" from the stock and addition of 100 PLN to bank account).
-# buy - Program fetches the product name, price and number of pcs. Produkt is being added to the stock, if it wasn't there. Calculations made in opposite way that for "sale" operation. Account balance after "buy" operation cannot be negative.
+# sale - Program fetches the product name, price and number of pcs. Product needs to be present in the stock. Required calculations related to bank account and stock (i.e. product "bicycle" that cost 100 and 1 pcs sold results in substraction 1 pcs of "bicycle" from the stock and addition of 100 PLN to bank account).
+# buy - Program fetches the product name, price and number of pcs. Product is being added to the stock, if it wasn't there. Calculations made in opposite way that for "sale" operation. Account balance after "buy" operation cannot be negative.
 # account - Program displays the account balance.
 # list - Program displays current state of stock including prices and quantities od products.
 # stock - Program displays current state of given product.
@@ -27,42 +27,16 @@
 # Program works till user gives "end" command
 # Commends: balance, sale, amd buy are saved so user can use "history" command.
 # After performing one of the commands (i.e. "balance") program again displays the information about other available commands, and also asks for entering one of the available commands.
-# Take care of errors that may occur during perfoming of an operation (i.e. while executing the "buy" command if the cost is negative, program should give a message that operation is not possible due to peform). Data types should be also appropriate.
+# Take care of errors that may occur during performing of an operation (i.e. while executing the "buy" command if the cost is negative, program should give a message that operation is not possible due to peform). Data types should be also appropriate.
 
-stock_account_balance = 20000.0
-history = ["account_balance_displayed", "end"]
-stock = [
-    {
-        "product": "chocolate",
-        "price": 15.0,
-        "quantity_in_stock": 10,
-        "product_code": "112233"
-    },
-    {
-        "product": "halvah",
-        "price": 8.0,
-        "quantity_in_stock": 5,
-        "product_code": "223344"
-    },
-    {
-        "product": "lollypop",
-        "price": 2.0,
-        "quantity_in_stock": 100,
-        "product_code": "334455"
-    },
-    {
-        "product": "donut",
-        "price": 40.0,
-        "quantity_in_stock": 8,
-        "product_code": "556677"
-    },
-    {
-        "product": "waffle",
-        "price": 6.0,
-        "quantity_in_stock": 50,
-        "product_code": "667788"
-    }
-]
+# account balance should be saved to the file
+# history should be saved to the file
+
+from file_handler_stock import file_handler
+
+stock_account_balance = file_handler.stock_account_balance
+history = file_handler.history
+stock = file_handler.stock
 
 while True:
     command = input("""
@@ -99,7 +73,7 @@ while True:
                         print(f"The price is: {product_price} PLN")
                         stock_account_balance = stock_account_balance + (product_price * quantity_for_sale)
                         print(f"Stock account balance is now: {stock_account_balance} PLN")
-                        history.append(f"Sold poduct {product_code}")
+                        history.append(f"Sold product {product_code}")
                     else:
                         print("No such product in stock")
                         break
@@ -131,10 +105,10 @@ while True:
             print(stock)
             history.append("Get entire stock")
         case "6":
-            product_code = input("Podaj nr produktu: ")
+            product_code = input("Provide product code: ")
             product_found = False
             for p in stock:
-                if p.get("kod_produktu") == product_code:
+                if p.get("product_code") == product_code:
                     product_found = True
                     print(f"Found product: {p}")
                     history.append("Finding product by code")
@@ -156,3 +130,5 @@ while True:
         case "8":
             print("Program end")
             break
+
+file_handler.save_data_to_file(new_stock_account_balance=stock_account_balance, new_history=history, new_stock=stock)
