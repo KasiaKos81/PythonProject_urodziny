@@ -7,6 +7,7 @@
 #  <output_file> - name of the file, to which the new content will be saved, i.e. out.csv
 # <transformation_x> - transformation in values "x,y,value" - x (column) and y (row) they are linear coordinates from 0, meanwhile "value" is the changed value, which should "come" in the given "place".
 #
+# python matrix_transform.py in.csv out.csv substract,row,1,-1
 
 
 import sys
