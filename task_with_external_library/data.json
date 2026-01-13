@@ -1,0 +1,15 @@
+{
+    "Szczecin": {
+        "2026-01-11": "nie pada",
+        "2026-01-13": "pada"
+    },
+    "Coventry": {
+        "2026-01-01": "nie pada"
+    },
+    "Bergen": {
+        "2026-01-01": "pada"
+    },
+    "Copenhagen": {
+        "2026-01-13": "pada"
+    }
+}
