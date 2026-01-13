@@ -1,15 +1,14 @@
 {
-    "Szczecin": {
-        "2026-01-11": "nie pada",
-        "2026-01-13": "pada"
+    "Oslo": {
+        "2026-01-09": "no rain"
     },
-    "Coventry": {
-        "2026-01-01": "nie pada"
+    "London": {
+        "2026-01-10": "no rain"
     },
-    "Bergen": {
-        "2026-01-01": "pada"
+    "Venice": {
+        "2026-01-02": "rain"
     },
     "Copenhagen": {
-        "2026-01-13": "pada"
+        "2026-01-13": "rain"
     }
 }

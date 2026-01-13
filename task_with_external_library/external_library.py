@@ -6,8 +6,8 @@
 # - if the date is not provided the app considers the next day as a target date
 # - the app will make a call to the API to check the weather
 # - there are three options to be received as a response about if it is going to rain:
-#  1 - it will rain
-#  2 - It won't rain
+#  1 - rain
+#  2 - no rain
 #  3 - no f*** idea
 #  - the response should be stored in a file. If the searched date is already present in a file return the response from the file
 #
@@ -20,7 +20,6 @@ from file_handler_rain import FileHandler
 #
 from geopy.geocoders import Nominatim
 file_handler = FileHandler("data.json")
-
 
 city = input("Provide the name of a city: ")
 searched_date = input("Privide date (YYYY-MM-DD): ")
@@ -47,15 +46,14 @@ def get_weather_info(latitude, longitude, searched_date):
 
 response = get_weather_info(latitude, longitude, searched_date)
 weather_result = response.get("daily").get("rain_sum")[0]
-# weather_info = "pada" if weather_result > 0 else "nie pada"
+# weather_info = "rain" if weather_result > 0 else "no rain"
 
 if weather_result > 0:
-    weather_info = "pada"
+    weather_info = "rain"
 elif weather_result == 0:
-    weather_info = "nie pada"
+    weather_info = "no rain"
 else:
     weather_info = "no f*** idea"
-
 
 print(weather_result)
 file_handler.write_file(city, searched_date, weather_info)
