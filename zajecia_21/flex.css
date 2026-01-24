@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    gap: 10%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.box
+{
+    background-color: pink;
+    padding: 3%
+}

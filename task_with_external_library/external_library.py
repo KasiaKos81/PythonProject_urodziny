@@ -17,6 +17,7 @@
 
 import requests
 from file_handler_rain import FileHandler
+import json
 #
 from geopy.geocoders import Nominatim
 file_handler = FileHandler("data.json")
@@ -56,7 +57,37 @@ else:
     weather_info = "no f*** idea"
 
 print(weather_result)
+print(weather_info)
 file_handler.write_file(city, searched_date, weather_info)
+
+class WeatherData:
+    def __init__(self, data):
+        self._data = data
+
+    def __getitem__(self, key):
+        return self._data[key]
+
+    def __setitem__(self, key, value):
+        self._data[key] = value
+
+    def __iter__(self):
+        return iter(self._data)
+
+    def items(self):
+        return self._data.items()
+
+with open("data.json", "r", encoding="utf-8") as file:
+            weather_data = json.loads(file.read())
+
+weather_forecast = WeatherData(weather_data)
+key = city
+print(weather_data[key])
+weather_forecast["Paris"] = {"2026-01-15": "no f*** idea"}
+for city, forecast in weather_data.items():
+    print(city, forecast)
+for key in weather_forecast:
+    print(key)
+
 
 
 

@@ -1,0 +1,16 @@
+.container{
+    display: grid;
+    gap: 2%;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    align-items: center;
+    height: 50vh;
+    }
+
+.box
+{
+    background-color: deeppink;
+    text-align: center;
+    margin: 20px;
+    border: grey 5px solid;
+}
