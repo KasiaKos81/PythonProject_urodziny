@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kasia's Store</title>
+    <link rel="stylesheet" href="store.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+<div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Kasia's Store</a>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">History</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div id="entry-section">
+    <h3>
+        Welcome
+        <small class="text-body-secondary">to Kasia's Sweet's Store</small>
+    </h3>
+    <img src="static/sweet_shop.png">
+</div>
+<div>
+    <h3>Balance: 2000</h3>
+</div>
+<div>
+    <table class="table table-bordered table-primary">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Product Code</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Dark Chocolate</td>
+            <td>21</td>
+            <td>7</td>
+            <td>123456</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Almod Donut</td>
+            <td>16</td>
+            <td>5</td>
+            <td>987654</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Strawberry Lollypop</td>
+            <td>10</td>
+            <td>100</td>
+            <td>678951</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>Raspberry Tart</td>
+            <td>55</td>
+            <td>5</td>
+            <td>678952</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="entry_section">
+    <div>
+        <h6>Balance change: </h6>
+        <form>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">New Balance</label>
+                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">Provide the amount</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Change</button>
+        </form>
+    </div>
+    <div>
+        <h6>Buy item</h6>
+        <form>
+            <div class="mb-3">
+                <label for="ProductCodeBuy" class="form-label">Product Code</label>
+                <input type="number" class="form-control" id="ProductCodeBuy" aria-describedby="emailHelp">
+                <div id="CodeBuy" class="form-text">Provide Product Code</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Buy</button>
+        </form>
+    </div>
+    <div>
+        <h6>Sell item</h6>
+        <form>
+            <div class="mb-3">
+                <label for="ProductCodeSell" class="form-label">Product Code</label>
+                <input type="number" class="form-control" id="ProductCodeSell" aria-describedby="emailHelp">
+                <div id="CodeSell" class="form-text">Provide Product Code</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Sell</button>
+        </form>
+    </div>
+
+    </div>
+
+</body>
+</html>

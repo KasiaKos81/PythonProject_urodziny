@@ -1,0 +1,9 @@
+.entry_section{
+    display: flex;
+    justify-content: space-around;
+    margin: 10%;
+}
+
+img {
+    max-width: 50%
+}
