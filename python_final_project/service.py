@@ -1,11 +1,15 @@
 import requests
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 base_url = "https://api.aviationstack.com/v1"
-api_key = "1a53b930589ccc2d36a299b36726373d"
+API_KEY = os.getenv("API_KEY")
 
 def get_api_info():
     url = f"{base_url}/flights"
-    params ={"access_key": api_key}
+    params ={"access_key": API_KEY}
 
     try:
         response = requests.get(url=url, params=params)
