@@ -1,6 +1,8 @@
 import requests
 from dotenv import load_dotenv
 import os
+from model import Flights
+from db import db
 
 load_dotenv()
 
@@ -17,6 +19,7 @@ def get_api_info():
 
         print(response.status_code)
         print(response.json())
+        return response.json().get("data")
 
     except requests.exceptions.RequestException as e:
         print("Error:" ,e)

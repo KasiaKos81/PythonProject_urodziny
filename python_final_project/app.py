@@ -12,6 +12,7 @@ app.register_blueprint(my_blueprint)
 app.register_blueprint(users_blueprint)
 
 with app.app_context():
+    db.create_all()
     flights = Flights.query.all()
     if not flights:
         flights_information = get_api_info()
@@ -24,17 +25,17 @@ with app.app_context():
             flight_number = flight.get("flight", {}).get("number")
 
 
-        new_flight = Flights(
-            departure_airport=departure_airport,
-            arrival_airport=arrival_airport,
-            departure_iata=departure_iata,
-            arrival_iata=arrival_iata,
-            airline_name=airline_name,
-            flight_number=flight_number,
-    )
+            new_flight = Flights(
+                departure_airport=departure_airport,
+                arrival_airport=arrival_airport,
+                departure_iata=departure_iata,
+                arrival_iata=arrival_iata,
+                airline_name=airline_name,
+                flight_number=flight_number,
+        )
 
-    db.session.add(new_flight)
-    db.session.commit()
+            db.session.add(new_flight)
+            db.session.commit()
 
 if __name__ == "__main__":
     app.run(debug=True)
