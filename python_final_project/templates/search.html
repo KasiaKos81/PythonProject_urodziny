@@ -11,72 +11,48 @@
     <h2 class="text-primary mb-4">Search Flights</h2>
 
     <!-- Search Form -->
-    <form method="POST" class="card p-4 shadow-sm mb-4">
-        <div class="row g-3">
-
-            <div class="col-md-6">
-                <label class="form-label">Departure IATA</label>
-                <input type="text"
-                       name="departure_iata"
-                       class="form-control"
-                       placeholder="e.g. JFK">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Departure Airport</label>
-                <input type="text"
-                       name="departure_airport"
-                       class="form-control"
-                       placeholder="e.g. John F Kennedy International Airport">
-            </div>
-
-        </div>
-
-        <div class="mt-4">
-            <button type="submit" class="btn btn-primary">
-                🔍 Search
-            </button>
-
-            <a href="{{ url_for('my_blueprint.index') }}"
-               class="btn btn-secondary ms-2">
-                ⬅ Back
-            </a>
-        </div>
+    <form method="POST" action="/v1/flights/search">
+        <input type="text" name="departure_iata" placeholder="Enter IATA code (e.g. JFK)">
+        <button type="submit">Search</button>
     </form>
 
+    {% for flight in flights %}
+    <p>{{ flight.flight_number }} - {{ flight.departure_iata }} → {{ flight.arrival_iata }}</p>
+    {% endfor %}
+
     <!-- Results -->
-    {% if flights %}
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-            <thead class="table-primary">
-                <tr>
-                    <th>Airline</th>
-                    <th>Flight Number</th>
-                    <th>Departure Airport</th>
-                    <th>Departure IATA</th>
-                    <th>Arrival Airport</th>
-                    <th>Arrival IATA</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for flight in flights %}
-                <tr>
-                    <td>{{ flight.airline_name }}</td>
-                    <td>{{ flight.flight_number }}</td>
-                    <td>{{ flight.departure_airport }}</td>
-                    <td>{{ flight.departure_iata }}</td>
-                    <td>{{ flight.arrival_airport }}</td>
-                    <td>{{ flight.arrival_iata }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    {% elif request.method == "POST" %}
-        <div class="alert alert-warning">
-            No flights found.
-        </div>
-    {% endif %}
+    <!--    {% if flights %}-->
+    <!--    <div class="table-responsive">-->
+    <!--        <table class="table table-bordered table-striped">-->
+    <!--            <thead class="table-primary">-->
+    <!--            <tr>-->
+    <!--                <th>Airline</th>-->
+    <!--                <th>Flight Number</th>-->
+    <!--                <th>Departure Airport</th>-->
+    <!--                <th>Departure IATA</th>-->
+    <!--                <th>Arrival Airport</th>-->
+    <!--                <th>Arrival IATA</th>-->
+    <!--            </tr>-->
+    <!--            </thead>-->
+    <!--            <tbody>-->
+    <!--            {% for flight in flights %}-->
+    <!--            <tr>-->
+    <!--                <td>{{ flight.airline_name }}</td>-->
+    <!--                <td>{{ flight.flight_number }}</td>-->
+    <!--                <td>{{ flight.departure_airport }}</td>-->
+    <!--                <td>{{ flight.departure_iata }}</td>-->
+    <!--                <td>{{ flight.arrival_airport }}</td>-->
+    <!--                <td>{{ flight.arrival_iata }}</td>-->
+    <!--            </tr>-->
+    <!--            {% endfor %}-->
+    <!--            </tbody>-->
+    <!--        </table>-->
+    <!--    </div>-->
+    <!--    {% elif request.method == "POST" %}-->
+    <!--    <div class="alert alert-warning">-->
+    <!--        No flights found.-->
+    <!--    </div>-->
+    <!--    {% endif %}-->
 
 </div>
 
